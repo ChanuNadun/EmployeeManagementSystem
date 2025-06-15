@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            margin: 0;
+            padding-top: 70px;
+        }
+        .navbar-custom {
+            background-color: #343a40;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-custom .navbar-brand, .navbar-custom .nav-link {
+            color: #ffffff;
+            font-weight: 600;
+        }
+        .navbar-custom .nav-link:hover {
+            color: #17a2b8;
+        }
+        footer {
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 1rem 0;
+            font-size: 0.9rem;
+            color: #6c757d;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm fixed-top navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="@Url.Action("Index", "Home")">👥 Employee Portal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "Employee")">Employees</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Calculate", "Calendar")">Working Days Calculator</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container mt-4">
+        @RenderBody()
+    </div>
+
+    <footer class="text-center bg-light py-3 mt-5 border-top">
+        <p class="mb-0 text-muted">© @DateTime.Now.Year - Waterlilly Employee Management</p>
+        <p class="mb-0 text-muted">Chanuka Nadun</p>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

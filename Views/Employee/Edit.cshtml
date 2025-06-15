@@ -1,0 +1,42 @@
+﻿@model WebApplication4.Models.Employee
+
+@{
+    ViewBag.Title = "Edit Employee";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Edit Employee</h4>
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm())
+            {
+                @Html.HiddenFor(m => m.Id)
+
+                <div class="mb-3">
+                    @Html.LabelFor(m => m.Name, new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Enter full name" })
+                    @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="mb-3">
+                    @Html.LabelFor(m => m.Email, new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Enter email address" })
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="mb-3">
+                    @Html.LabelFor(m => m.JobPosition, new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.JobPosition, new { @class = "form-control", placeholder = "Enter job position" })
+                    @Html.ValidationMessageFor(m => m.JobPosition, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-success">Update</button>
+                    <a href="@Url.Action("Index")" class="btn btn-outline-secondary">Back to List</a>
+                </div>
+            }
+        </div>
+    </div>
+</div>

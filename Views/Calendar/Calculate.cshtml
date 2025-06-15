@@ -1,0 +1,43 @@
+﻿@model WebApplication4.Models.DateRangeViewModel
+
+@{
+    ViewBag.Title = "Working Days Calculator";
+}
+
+<div class="container mt-5">
+    <a href="@Url.Action("Index", "Home")" class="btn btn-outline-secondary mb-5">Back to Home</a>
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Working Days Calculator</h4>
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm())
+            {
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        @Html.LabelFor(m => m.StartDate, new { @class = "form-label" })
+                        @Html.TextBoxFor(m => m.StartDate, new { @class = "form-control", type = "date" })
+                        @Html.ValidationMessageFor(m => m.StartDate, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-6">
+                        @Html.LabelFor(m => m.EndDate, new { @class = "form-label" })
+                        @Html.TextBoxFor(m => m.EndDate, new { @class = "form-control", type = "date" })
+                        @Html.ValidationMessageFor(m => m.EndDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="text-end">
+                    <button type="submit" class="btn btn-success">Calculate</button>
+
+                </div>
+            }
+        </div>
+    </div>
+
+    @if (Model != null && Model.WorkingDays > 0)
+    {
+        <div class="alert alert-info mt-4">
+            <strong>Working Days:</strong> @Model.WorkingDays
+        </div>
+    }
+</div>

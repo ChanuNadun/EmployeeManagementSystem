@@ -1,0 +1,21 @@
+﻿@model WebApplication4.Models.Employee
+
+@{
+    ViewBag.Title = "Delete Employee";
+}
+
+<h2 class="mb-4">Are you sure you want to delete this employee?</h2>
+
+<div class="border p-3 rounded bg-light">
+    <p><strong>Name:</strong> @Model.Name</p>
+    <p><strong>Email:</strong> @Model.Email</p>
+    <p><strong>Job Position:</strong> @Model.JobPosition</p>
+</div>
+
+@using (Html.BeginForm("Delete", "Employee", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.Id)
+
+    <button type="submit" class="btn btn-danger mt-3">Yes, Delete</button>
+    <a href="@Url.Action("Index", "Employee")" class="btn btn-secondary mt-3 ml-2">Cancel</a>
+}
