@@ -11,21 +11,34 @@ namespace WebApplication4.Models
 {
     using System;
     using System.Data.Entity;
+    using WebApplication4.Models;
     using System.Data.Entity.Infrastructure;
     
-    public partial class WaterlillyEmployeeManagementDB1 : DbContext
+    public class WaterlillyEmployeeManagementDB1 : DbContext
     {
         public WaterlillyEmployeeManagementDB1()
             : base("name=WaterlillyEmployeeManagementDB1")
         {
         }
-    
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-    
+
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    base.OnModelCreating(modelBuilder);
+
+        //    // If needed, you can configure model here
+        //    modelBuilder.Entity<EmployeeAttendance>().ToTable("EmployeeAttendances");
+        //}
+
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<PublicHoliday> PublicHolidays { get; set; }
+        public virtual DbSet<EmployeeLeave> EmployeeLeaves { get; set; }
+        public virtual DbSet<EmployeeAttendance> EmployeeAttendances { get; set; }
+
+
     }
 }

@@ -130,10 +130,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\AttendanceController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\EmployeeAttendanceModel.cs" />
+    <Compile Include="Models\EmployeeLeave.cs" />
+    <Compile Include="Models\EmployeeAttendance.cs" />
     <Compile Include="Models\DateRangeViewModel.cs" />
     <Compile Include="Models\Employee.cs">
       <DependentUpon>WaterlillyModel.tt</DependentUpon>
@@ -271,6 +275,8 @@
     <Content Include="Views\Employee\Create.cshtml" />
     <Content Include="Views\Employee\Edit.cshtml" />
     <Content Include="Views\Employee\Delete.cshtml" />
+    <Content Include="Views\Attendance\MarkAttendance.cshtml" />
+    <Content Include="Views\Attendance\AttendanceList.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -1,0 +1,28 @@
+﻿@model List<WebApplication4.Models.EmployeeAttendance>
+
+@{
+    ViewBag.Title = "Attendance List";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4">📊 Attendance Records</h2>
+    <table class="table table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>Employee</th>
+                <th>Date</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var record in Model)
+            {
+                <tr>
+                    <td>@record.Employee?.Name</td>
+                    <td>@record.AttendanceDate.ToString("yyyy-MM-dd")</td>
+                    <td>@record.Status</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

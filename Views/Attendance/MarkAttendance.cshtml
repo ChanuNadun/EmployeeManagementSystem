@@ -1,0 +1,30 @@
+﻿@model WebApplication4.Models.EmployeeAttendance
+
+@{
+    ViewBag.Title = "Mark Attendance";
+    var employees = ViewBag.Employees as List<WebApplication4.Models.Employee>;
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4">📋 Mark Attendance</h2>
+
+    @using (Html.BeginForm())
+    {
+        <div class="mb-3">
+            @Html.LabelFor(m => m.EmployeeId, "Employee")
+            @Html.DropDownListFor(m => m.EmployeeId, new SelectList(employees, "Id", "Name"), "-- Select --", new { @class = "form-select" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(m => m.AttendanceDate, "Date")
+            @Html.TextBoxFor(m => m.AttendanceDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(m => m.Status)
+            @Html.DropDownListFor(m => m.Status, new SelectList(new[] { "Present", "Absent", "Remote", "Half-Day" }), "-- Select --", new { @class = "form-select" })
+        </div>
+
+        <button type="submit" class="btn btn-success">Save</button>
+    }
+</div>
